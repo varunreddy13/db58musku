@@ -1,4 +1,4 @@
-var Costume = require('../models/vechile'); 
+var vechile = require('../models/vechile'); 
  
 // List of all Costumes 
 exports.vechile_list = function(req, res) { 
