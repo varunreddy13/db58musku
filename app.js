@@ -53,10 +53,10 @@ vechile({vName:"Mercedece",  vEngine:'Desil',
 vCost:20000}); 
 let instance2 = new 
 vechile({vName:"Nikon",  vEngine:'Petrol', 
-vcost:10000}); 
+vCost:10000}); 
 let instance3 = new 
 vechile({vName:"Sony",  vEngine:'Petrol', 
-vcost:30000}); 
+vCost:30000}); 
   instance1.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("First object saved") 
