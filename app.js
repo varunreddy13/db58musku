@@ -16,6 +16,7 @@ var vechileRouter = require('./routes/vechile');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector')
 var vechile = require("./models/vechile"); 
+var resourcerRouter = require('./routes/resource')
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use('/users', usersRouter);
 app.use('/vechile', vechileRouter);
 app.use('/addmods', addmodsRouter);
 app.use('/selector', selectorRouter);
+app.use('/resource', resourceRouter);
 //Get the default connection 
 var db = mongoose.connection; 
  
