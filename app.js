@@ -16,7 +16,7 @@ var vechileRouter = require('./routes/vechile');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector')
 var vechile = require("./models/vechile"); 
-var resourcerRouter = require('./routes/resource')
+var resourceRouter = require('./routes/resource')
 
 var app = express();
 
