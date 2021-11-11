@@ -39,7 +39,7 @@ exports.vechile_list = async function(req, res) {
 // Handle a show all view 
 exports.vechile_view_all_Page = async function(req, res) { 
     try{ 
-        theCostumes = await Costume.find(); 
+        theCostumes = await vechile.find(); 
         res.render('vechile', { title: 'vechile Search Results', results: theCostumes }); 
     } 
     catch(err){ 
