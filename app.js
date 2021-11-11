@@ -52,10 +52,10 @@ async function recreateDB(){
 vechile({vName:"Mercedece",  vEngine:'Desil', 
 vCost:20000}); 
 let instance2 = new 
-vechile({costume_type:"Nikon",  size:'Petrol', 
+vechile({vName:"Nikon",  vEngine:'Petrol', 
 vcost:10000}); 
 let instance3 = new 
-vechile({costume_type:"Sony",  size:'Petrol', 
+vechile({vName:"Sony",  vEngine:'Petrol', 
 vcost:30000}); 
   instance1.save( function(err,doc) { 
       if(err) return console.error(err); 
