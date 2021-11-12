@@ -69,10 +69,10 @@ exports.vechile_create_post = async function(req, res) {
 }; 
 
 // for a specific Costume. 
-exports.costume_detail = async function(req, res) { 
+exports.vechile_detail = async function(req, res) { 
     console.log("detail"  + req.params.id) 
     try { 
-        result = await Costume.findById( req.params.id) 
+        result = await vechile.findById( req.params.id) 
         res.send(result) 
     } catch (error) { 
         res.status(500) 
