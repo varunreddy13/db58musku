@@ -27,6 +27,19 @@ router.get('/vechile/:id', vechile_controller.vechile_detail);
  
 // GET request for list of all vechile items. 
 router.get('/vechile', vechile_controller.vechile_list); 
+
+/* GET detail vechile page */ 
+router.get('/detail', vechile_controller.vechile_view_one_Page); 
+ 
+/* GET create vechile page */ 
+router.get('/create', vechile_controller.vechile_create_Page); 
+
+/* GET create update page */ 
+router.get('/update', vechile_controller.vechile_update_Page);
+
+/* GET create vechile page */ 
+router.get('/delete', vechile_controller.vechile_delete_Page); 
+ 
  
 module.exports = router; 
  

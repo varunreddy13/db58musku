@@ -1,0 +1,53 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let vechileid = toShow._id 
+    - let vName = toShow.vName 
+    - let vEngine = toShow.vEngine 
+    - let vCost = toShow.vCost 
+    - let actionid = "/resource/vechile/" + vechileid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='vechileAttr mr-3') vechile ID is: 
+        div #{vechileid} 
+      div.row 
+        div(class='vechileAttr mr-3') vechile name is: 
+        div #{vName} 
+      div.row 
+        div(class='vechileAttr mr-3') vechile Size is: 
+        div #{vEngine} 
+      div.row 
+        div(class='vechileAttr mr-3') vechile vCost is: 
+        div #{vCost} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the vechile collection 
+      window.location.href='/vechile' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'      // Don't need a body for the delete 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/vechile' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    }

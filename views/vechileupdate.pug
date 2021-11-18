@@ -1,0 +1,51 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let appleid = toShow._id 
+  - let vName = toShow.vName 
+  - let vEngine = toShow.vEngine 
+  - let vCost = toShow.vCost
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{appleid} 
+  - let actionid = "/resource/vechile/" + appleid 
+  form(id='appleForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.appleAttr(for='vName') vechile name 
+        input#vName(type='text', name='vName', value= vName ) 
+    div.form-group 
+        label.appleAttr(for='vEngine') vechile engine 
+        input#vEngine(type='text', name='vEngine', value= vEngine ) 
+    div.form-group 
+        label.appleAttr(for='vCost') vechile vCost 
+        input#vCost(type='number', name='vCost', value= vCost ) 
+    input(type="submit") 
+
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the apple collection 
+      window.location.href='/vechile' 
+    } 
+ 
+  script.
+    document.forms['appleForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+     });
+    

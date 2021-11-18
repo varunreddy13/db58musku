@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let costumeid = toShow._id 
+  - let vName = toShow.vName 
+  - let vEngine = toShow.vEngine
+  - let vCost = toShow.vCost
+  div 
+    div.row 
+      div(class='costumeAttr mr-3') Costume ID is: 
+      div #{costumeid} 
+    div.row 
+      div(class='costumeAttr mr-3') vechile name is: 
+      div #{vName} 
+    div.row 
+      div(class='costumeAttr mr-3') vechile engine is: 
+      div #{vEngine } 
+    div.row 
+      div(class='costumeAttr mr-3') vechile Cost is: 
+      div #{vCost} 
