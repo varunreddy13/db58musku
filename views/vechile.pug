@@ -1,35 +1,16 @@
-extends layout
-
-block content
-  h1= title
-  p Vechile results
-  div(class="container-fluid")
-        div(class="row")
-            -
-                let details = [
-                    {
-                        "vName": "Mercedece",
-                        "vEngine": "Desil",
-                        "vCost": 2000000
-                    },
-                    {
-                        "vName": "Nikon",
-                        "vEngine": "Petrol",
-                        "vCost": 850000
-                    },
-                    {
-                        "vName": "Sony",
-                        "vEngine": "Petrol",
-                        "vCost": 1500000
-                    },                   
-                ]
-            each c,index in details
-                div(class="col-sm-2" onclick=`buy(${index})`) #{c.vName}
-                div(class="col-sm-2" onclick=`buy(${index})`) #{c.vEngine}
-                div(class="col-sm-2" onclick=`buy(${index})`) #{c.vCost}
-
-                script.                
-                      function buy(itemNo)
-                      {
-                            alert(`You purchased item ${itemNo+1}`)
-                      }
+extends layout 
+ 
+block content 
+  h1= title 
+  - let items = results;
+         div(class="container-fluid") 
+            div(class="row m-1") 
+              each item in items  
+                - let destination = `dispatch(\"/resource/update?id=${item._id}\")` 
+                  div(class="row-sm-2", class="m-1") Item #{item.vName}(#{item.vEngine}) is #{item.vCost} 
+                    button.btn( class="btn-primary ml-1", onclick= destination) Update 
+   
+                        script. 
+                          function dispatch(path){ 
+                                window.location.href=path 
+                                }
