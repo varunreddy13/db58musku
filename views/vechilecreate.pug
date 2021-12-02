@@ -5,14 +5,14 @@ block content
  
   form(id='vechileForm', action="/resource/vechile", method="POST") 
     div.form-group 
-        label.vechileAttr(for='vName') volkswagen name
-        input#vName(type='text', name='vName') 
+        label.vechileAttr(for='pName') vechile type 
+        input#pName(type='text', name='pName') 
     div.form-group 
-        label.vechileAttr(for='vEngine') volkswagen user 
-        input#vEngine(type='text', name='vEngine') 
+        label.vechileAttr(for='pPixels') vechile pPixels 
+        input#pPixels(type='text', name='pPixels') 
     div.form-group 
-        label.vechileAttr(for='vCost') volkswagen Cost 
-        input#vCost(type='number', name='vCost') 
+        label.vechileAttr(for='pCost') vechile pCost 
+        input#pCost(type='number', name='pCost') 
     input(type="submit") 
  
   script. 
@@ -32,3 +32,28 @@ block content
         alert("Save failed " + error ) 
       }); 
     }); 
+    button(class="btn btn-danger m-2" onclick="createOnid()") Create 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the vechile collection 
+      window.location.href='/vechiles' 
+    } 
+  script. 
+    function createOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'      // Don't need a body for the delete 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/vechile' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    }
